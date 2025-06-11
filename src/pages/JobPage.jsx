@@ -1,13 +1,20 @@
 // import { useState, useEffect} from 'react';
-import {useParams, useLoaderData, Link} from 'react-router-dom';
+import {useParams, useLoaderData, Link, useNavigate} from 'react-router-dom';
 import {FaArrowLeft, FaMapMarkerAlt} from 'react-icons/fa'
 
-import Spinner from '../components/Spinner';
 
-
-const JobPage = () => {
+const JobPage = ({deleteJob}) => {
   const { id } = useParams();
   const job = useLoaderData();
+  const navigate = useNavigate();
+
+  const onDeleteClick = (jobId) => {
+    const confirm = window.confirm('Are you sure you want to delete this listing');
+    if(!confirm) return;
+
+    deleteJob(jobId);
+    navigate('/jobs')
+  }
  
   // How to fetch a JSON API with useEffect()
   // const [job, setJob] = useState(null);
@@ -48,7 +55,7 @@ const JobPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
           <main>
             <div
-              classNameName="bg-white p-6 rounded-lg shadow-md text-center md:text-left"
+              className="bg-white p-6 rounded-lg shadow-md text-center md:text-left"
             >
               <div className="text-gray-500 mb-4">{job.type}</div>
               <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
@@ -109,6 +116,7 @@ const JobPage = () => {
               >
               <button
                 className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                onClick={()=> onDeleteClick(job.id)}
               >
                 Delete Job
               </button>

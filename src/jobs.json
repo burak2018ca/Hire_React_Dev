@@ -1,5 +1,5 @@
 {
-  "jobs":[
+  "jobs": [
     {
       "id": "1",
       "title": "Senior React Developer",
@@ -83,5 +83,20 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
+    },
+    {
+      "id": "43f1",
+      "title": "Test Job 1",
+      "type": "Full-Time",
+      "location": "toronto",
+      "description": "this is a test job 1",
+      "salary": "Under $50K",
+      "company": {
+        "name": "Thunder LLC",
+        "description": "this is a great company",
+        "contactEmail": "test@test",
+        "contactPhone": "5555-5555-5555"
+      }
     }
-  ]}
+  ]
+}
