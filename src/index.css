@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Oswald", "sans-serif";
+  --grid-template-columns-70to30: '70% 28%';
+}
+
